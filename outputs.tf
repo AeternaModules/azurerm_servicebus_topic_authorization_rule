@@ -1,3 +1,7 @@
+output "servicebus_topic_authorization_rules_id" {
+  description = "Map of id values across all servicebus_topic_authorization_rules, keyed the same as var.servicebus_topic_authorization_rules"
+  value       = { for k, v in azurerm_servicebus_topic_authorization_rule.servicebus_topic_authorization_rules : k => v.id }
+}
 output "servicebus_topic_authorization_rules_listen" {
   description = "Map of listen values across all servicebus_topic_authorization_rules, keyed the same as var.servicebus_topic_authorization_rules"
   value       = { for k, v in azurerm_servicebus_topic_authorization_rule.servicebus_topic_authorization_rules : k => v.listen }
